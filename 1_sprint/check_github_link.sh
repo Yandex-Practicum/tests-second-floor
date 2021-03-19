@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LINK=PORT=$(less README.md | grep https://github.com/ | grep /middle.messenger.praktikum.yandex)
+LINK=$(less README.md | grep https://github.com/ | grep /middle.messenger.praktikum.yandex)
 
 if [[ -z $LINK ]]
 then
