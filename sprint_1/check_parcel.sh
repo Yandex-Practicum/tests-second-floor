@@ -1,6 +1,6 @@
 #!/bin/bash
-. ./tests-second-floor/1_sprint/print_err.sh
-. ./tests-second-floor/1_sprint/ERRORS_KEYS.sh
+. ./tests-second-floor/sprint_1/print_err.sh
+. ./tests-second-floor/sprint_1/ERRORS_KEYS.sh
 
 PARCEL=$(npm run | grep "start" -A1 | grep "parcel")
 if [[ -z $PARCEL ]]
