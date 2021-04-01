@@ -1,6 +1,6 @@
 #!/bin/bash
-. ./tests-second-floor/sprint_1/print_err.sh
-. ./tests-second-floor/sprint_1/ERRORS_KEYS.sh
+. ./tests-second-floor/1_sprint/print_err.sh
+. ./tests-second-floor/1_sprint/ERRORS_KEYS.sh
 
 LINK=$(cat README.md | grep https://github.com/ | grep /middle.messenger.praktikum.yandex)
 
