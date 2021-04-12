@@ -3,7 +3,7 @@
 . ./tests-second-floor/sprint_1/ERRORS_KEYS.sh
 
 npm ci && npm run start &
-sleep 20
+sleep 60
 
 PORT=$(netstat -an | grep ':3000 ')
 if [[ -z $PORT ]]
