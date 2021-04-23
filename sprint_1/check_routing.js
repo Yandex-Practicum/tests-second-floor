@@ -1,3 +1,7 @@
+function redLog (err) {
+	console.log('\x1b[31m' + err + '\x1b[0m')
+}
+
 const http = require('http');
 
 function get(reletiveURI, cookie = []) {
@@ -35,7 +39,7 @@ async function test() {
          throw new Error("Routing problem");
      }
     } catch(err) {
-       console.error(err)
+       redLog(err)
        process.exit (1)
        // errors.push({ id: 'student_web_project_error.12.signUp' });
        // console.error(errors);
