@@ -21,8 +21,24 @@ print_green "CHECK START"
 bash tests-second-floor/sprint_1/check_start.sh
 check
 
+print_green "CHECK WEBPACK"
+bash tests-second-floor/sprint_4/check_webpack.sh
+check
+
+print_green "CHECK PORT"
+bash tests-second-floor/sprint_1/check_port.sh
+check
+
+print_green "CHECK ROUTING"
+node tests-second-floor/sprint_1/check_routing.js
+check
+
 print_green "CHECK TYPESCRIPT"
 node tests-second-floor/sprint_2/check_typescript.js
+check
+
+print_green "CHECK NO TSLINT"
+node tests-second-floor/sprint_4/check_no_tslint.js
 check
 
 print_green "CHECK STYLELINT"
