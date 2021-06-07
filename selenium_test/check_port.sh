@@ -2,7 +2,7 @@
 . ./tests-second-floor/sprint_1/print_err.sh
 . ./tests-second-floor/sprint_1/ERRORS_KEYS.sh
 
-npm npm install --no-optional && npm run start &
+npm install --no-optional && npm run start &
 sleep 40
 
 PORT=$(netstat -an | grep ':3000 ')
