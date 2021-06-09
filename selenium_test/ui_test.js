@@ -3,7 +3,7 @@ const webdriver = require('selenium-webdriver');
 const firefox = require('selenium-webdriver/firefox');
 let options = new firefox.Options().setBinary(firefox.Channel.NIGHTLY);
 
-/*
+
 const fs = require('fs');
 const path = require('path');
 const http = require('http');
@@ -66,7 +66,8 @@ async function test() {
 			.setFirefoxOptions(options)
             .build();
         for (let key in seleniumTests) {
-            await seleniumTests[key](driver, webdriver, errors);
+		console.log(111111111111)
+      //      await seleniumTests[key](driver, webdriver, errors);
         }
     } catch (err) { }
     try {
@@ -84,4 +85,4 @@ return test().catch((err) => {
     };
 }
 );
-*/
+
