@@ -47,6 +47,8 @@ const seleniumTests = {
 
         } catch (e) {
 			console.log(110)
+					console.log(e)
+
 
 //			errors.push(e.toString())
             errors.push('test.errors.reactDev.navigation.noLinkViewCatalog'); //Должна отрендериться ссылка на /list с текстом View catalog
