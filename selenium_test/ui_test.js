@@ -17,6 +17,7 @@ const seleniumTests = {
     viewCatalog: async (driver, webdriver, errors) => {
 	    	console.log(101)
         try {
+		await driver.navigate.to("")
 			console.log(102)
             await driver.get('http://localhost:3000/');
 			console.log(103)
