@@ -3,7 +3,7 @@
 . ./tests-second-floor/sprint_1/ERRORS_KEYS.sh
 
 
-(netstat -an | grep ':3000 '
+netstat -an | grep ':3000 '
 
 
 sudo cp tests-second-floor/geckodriver /usr/local/bin
