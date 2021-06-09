@@ -6,7 +6,7 @@ function print_red(){
 WEBPACK=$(npm run | grep "start" -A1 | grep "webpack")
 if [[ -z $WEBPACK ]]
 then
-	print_red "NO PARCEL IN START SCRIPT"
+	print_red "NO WEBPACK IN START SCRIPT"
 	exit 1
 fi
 
