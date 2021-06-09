@@ -66,10 +66,12 @@ async function test() {
 			.setFirefoxOptions(options)
             .build();
         for (let key in seleniumTests) {
+		console.log(1)
             await seleniumTests[key](driver, webdriver, errors);
+		console.log(2)
         }
     } catch (err) { }
-	console.log(2)
+	console.log(5)
 //    try {
   //      await driver.quit();
     //} catch (err) { }
