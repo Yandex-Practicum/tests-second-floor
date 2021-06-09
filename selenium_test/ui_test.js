@@ -3,7 +3,7 @@ const webdriver = require('selenium-webdriver');
 const firefox = require('selenium-webdriver/firefox');
 let options = new firefox.Options().setBinary(firefox.Channel.NIGHTLY);
 
-
+/*
 const fs = require('fs');
 const path = require('path');
 const http = require('http');
@@ -84,3 +84,4 @@ return test().catch((err) => {
     };
 }
 );
+*/
