@@ -2,8 +2,6 @@
 . ./tests-second-floor/sprint_1/print_err.sh
 . ./tests-second-floor/sprint_1/ERRORS_KEYS.sh
 
-firefox -v    
-
 npm install -f && npm run start &
 sleep 40
 
