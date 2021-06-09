@@ -14,7 +14,6 @@ function redLog (err) {
 }
 
 const seleniumTests = {
-	console.log(100)
     viewCatalog: async (driver, webdriver, errors) => {
 	    	console.log(101)
         try {
