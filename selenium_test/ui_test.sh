@@ -6,6 +6,6 @@
 netstat -an | grep ':3000 '
 
 
-sudo cp tests-second-floor/geckodriver /usr/local/bin
+rm -Rf tests-second-floor/geckodriver 
 npm  --prefix ./tests-second-floor/selenium_test install ./tests-second-floor/selenium_test &> install_errors.txt
 node tests-second-floor/selenium_test/ui_test.js
