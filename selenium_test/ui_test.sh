@@ -3,13 +3,7 @@
 . ./tests-second-floor/sprint_1/ERRORS_KEYS.sh
 
 
-PORT=$(netstat -an | grep ':3000 ')
-if [[ -z $PORT ]]
-then
-	print_err $PORT_ERR
-	exit 1
-fi
-
+(netstat -an | grep ':3000 '
 
 
 sudo cp tests-second-floor/geckodriver /usr/local/bin
