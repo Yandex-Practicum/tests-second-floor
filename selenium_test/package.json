@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "geckodriver": "^2.0.0",
     "selenium-webdriver": "^3.6.0"
   },
   "description": ""
