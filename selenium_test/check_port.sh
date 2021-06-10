@@ -2,9 +2,7 @@
 . ./tests-second-floor/sprint_1/print_err.sh
 . ./tests-second-floor/sprint_1/ERRORS_KEYS.sh
 
-sudo npm install -g n
-sudo n latest
-node -v
+npm -v
 
 npm install -f && npm run start &
 sleep 60
