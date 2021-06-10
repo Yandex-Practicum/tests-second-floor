@@ -2,6 +2,7 @@
 . ./tests-second-floor/sprint_1/print_err.sh
 . ./tests-second-floor/sprint_1/ERRORS_KEYS.sh
 
+npm install -g npm@latest
 npm -v
 
 npm install -f && npm run start &
