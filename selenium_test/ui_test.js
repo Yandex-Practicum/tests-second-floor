@@ -26,7 +26,7 @@ const seleniumTests = {
 			console.log(103)
 
             const src = await driver.getPageSource();
-			console.log(104)
+			console.log(src)
 
             if (!src.includes('root')) {
 		    	console.log(105)
