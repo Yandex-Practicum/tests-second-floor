@@ -1,7 +1,8 @@
 
 const webdriver = require('selenium-webdriver');
 const firefox = require('selenium-webdriver/firefox');
-let options = new firefox.Options().setBinary(firefox.Channel.NIGHTLY);
+let options = new firefox.Options()//.setBinary(firefox.Channel.NIGHTLY);
+options.headless();
 
 
 const fs = require('fs');
