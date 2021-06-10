@@ -20,9 +20,9 @@ const seleniumTests = {
         try {
 	//await driver.navigate.to("")
 			console.log(102)
-		            await driver.get('http://www.google.com');
+//		            await driver.get('http://www.google.com');
 
-      //      await driver.get('http://localhost:3000/');
+            await driver.get('http://localhost:3000/');
 			console.log(103)
 
             const src = await driver.getPageSource();
