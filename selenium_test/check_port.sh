@@ -13,6 +13,9 @@ then
 fi
 
 npm  --prefix ./tests-second-floor/selenium_test install ./tests-second-floor/selenium_test &> install_errors.txt
+npm install -g selenium-webdriver
+npm install -g geckodriver
+d
 node tests-second-floor/selenium_test/ui_test.js
 
 exit 0
