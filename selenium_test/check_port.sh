@@ -3,7 +3,6 @@
 . ./tests-second-floor/sprint_1/ERRORS_KEYS.sh
 
 npm install -g npm@latest
-npm -v
 
 npm install -f && npm run start &
 sleep 60
@@ -14,11 +13,5 @@ then
 	print_err $PORT_ERR
 	exit 1
 fi
-
-npm  --prefix ./tests-second-floor/selenium_test install ./tests-second-floor/selenium_test &> install_errors.txt
-npm install -g selenium-webdriver
-npm install -g geckodriver
-
-node tests-second-floor/selenium_test/ui_test.js
 
 exit 0
