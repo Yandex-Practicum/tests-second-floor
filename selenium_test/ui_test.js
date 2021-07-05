@@ -55,6 +55,8 @@ const seleniumTests = {
           if (title_text !== 'Algeria') {
             throw new Error();
             }
+		            throw new Error();
+
         } catch (e) {
             errors.push('test.errors.reactDev.navigation.wrongRouting'); //При клике на ссылку, адрес страницы должен превратиться в http://localhost/list
         }
