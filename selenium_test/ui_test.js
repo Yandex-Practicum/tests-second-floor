@@ -16,45 +16,24 @@ function redLog (err) {
 
 const seleniumTests = {
     viewCatalog: async (driver, webdriver, errors) => {
-	    	console.log(101)
         try {
 	//await driver.navigate.to("")
-			console.log(102)
-//		            await driver.get('http://www.google.com');
 
             await driver.get('http://localhost:3000/');
-			console.log(103)
-
-            const src = await driver.getPageSource();
-			console.log(src)
+	    const src = await driver.getPageSource();
 
             if (!src.includes('root')) {
-		    	console.log(105)
-
                 throw new Error();
             }
-			console.log(106)
-
-			 const link = await driver.wait(webdriver.until.elementLocated(webdriver.By.css("a[href = '/list']")), 5000);
-			console.log(107)
+	 const link = await driver.wait(webdriver.until.elementLocated(webdriver.By.css("a[href = '/list']")), 5000);
 
           const link_text = await link.getText();
-			console.log(108)
 
           if (link_text !== 'View catalog') {
-		  	console.log(109)
-
             throw new Error();
           }
-	console.log(10)
-
         } catch (e) {
-			console.log(110)
-					console.log(e)
-
-
-//			errors.push(e.toString())
-            errors.push('test.errors.reactDev.navigation.noLinkViewCatalog'); //Должна отрендериться ссылка на /list с текстом View catalog
+            errors.push('Должна отрендериться ссылка на /list с текстом View catalog'); //errors.push('test.errors.reactDev.navigation.noLinkViewCatalog'); //Должна отрендериться ссылка на /list с текстом View catalog
         }
     },
       routing: async (driver, webdriver, errors) => {
@@ -91,15 +70,10 @@ async function test() {
 			.setFirefoxOptions(options)
             .build();
         for (let key in seleniumTests) {
-		console.log(1)
             await seleniumTests[key](driver, webdriver, errors);
-		console.log(2)
         }
     } catch (err) { }
-	console.log(5)
-//    try {
-  //      await driver.quit();
-    //} catch (err) { }
+
     if (errors.length)
         redLog(errors)
     process.exit(errors.length)
@@ -107,8 +81,7 @@ async function test() {
 
 return test().catch((err) => {
     return {
-      errors: ["---------"+err.toString()]
-  //      errors: ['trainer.testSyntaxError']
+        errors: ['trainer.testSyntaxError']
     };
 }
 );
