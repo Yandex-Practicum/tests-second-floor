@@ -32,6 +32,8 @@ const seleniumTests = {
           if (link_text !== 'View catalog') {
             throw new Error();
           }
+				            throw new Error();
+
         } catch (e) {
             errors.push('Должна отрендериться ссылка на /list с текстом View catalog'); //errors.push('test.errors.reactDev.navigation.noLinkViewCatalog'); //Должна отрендериться ссылка на /list с текстом View catalog
         }
@@ -55,7 +57,6 @@ const seleniumTests = {
           if (title_text !== 'Algeria') {
             throw new Error();
             }
-		            throw new Error();
 
         } catch (e) {
             errors.push('test.errors.reactDev.navigation.wrongRouting'); //При клике на ссылку, адрес страницы должен превратиться в http://localhost/list
