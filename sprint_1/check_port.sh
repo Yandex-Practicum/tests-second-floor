@@ -1,5 +1,5 @@
-. ./tests-second-floor/1_sprint/print_err.sh
-. ./tests-second-floor/1_sprint/ERRORS_KEYS.sh
+. ./tests-second-floor/sprint_1/print_err.sh
+. ./tests-second-floor/sprint_1/ERRORS_KEYS.sh
 
 npm install -f && npm run start &
 timeout 100 bash tests-second-floor/sprint_1/setInterval.sh
