@@ -15,8 +15,6 @@ setInterval() {
 }
 a=0
 dowork() {
-  echo $a
-  let "a+=2"
 	PORT=$(netstat -an | grep ':3000 ')
 	if [[ $PORT ]]
 then
