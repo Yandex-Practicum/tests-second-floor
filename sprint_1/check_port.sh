@@ -1,15 +1,12 @@
-#!/bin/bash
-. ./tests-second-floor/sprint_1/print_err.sh
-. ./tests-second-floor/sprint_1/ERRORS_KEYS.sh
+. ./tests-second-floor/1_sprint/print_err.sh
+. ./tests-second-floor/1_sprint/ERRORS_KEYS.sh
 
-npm ci && npm run start &
-sleep 40
+npm install -f && npm run start &
+timeout 100 bash tests-second-floor/sprint_1/setInterval.sh
 
-PORT=$(netstat -an | grep ':3000 ')
-if [[ -z $PORT ]]
-then
-	print_err $PORT_ERR
-	exit 1
+if [[ $? == "0" ]]; then
+	exit 0
 fi
 
-exit 0
+print_err $PORT_ERR
+exit 1
