@@ -13,7 +13,6 @@ setInterval() {
 		sleep "$_sleep"
 	done
 }
-a=0
 dowork() {
 	PORT=$(netstat -an | grep ':3000 ')
 	if [[ $PORT ]]
