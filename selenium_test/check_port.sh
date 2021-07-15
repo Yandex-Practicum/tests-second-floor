@@ -4,5 +4,9 @@
 npm install -f && npm run start &
 timeout 120 bash tests-second-floor/selenium_test/setInterval.sh
 
+if [[ $? == "0" ]]; then
+	exit 0
+fi
+
 print_err $PORT_ERR
 exit 1
