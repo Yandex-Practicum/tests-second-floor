@@ -13,7 +13,7 @@ setInterval() {
 		sleep "$_sleep"
 	done
 }
-dowork() {
+check() {
 	PORT=$(netstat -an | grep ':3000 ')
 	if [[ $PORT ]]
 then
@@ -21,4 +21,4 @@ then
 fi
 }
 
-setInterval dowork 2
+setInterval check 2
