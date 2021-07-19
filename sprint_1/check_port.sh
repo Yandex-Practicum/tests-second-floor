@@ -5,6 +5,7 @@ npm install -f && npm run start &
 timeout 100 bash tests-second-floor/sprint_1/setInterval.sh
 
 if [[ $? == "0" ]]; then
+	sleep 15
 	exit 0
 fi
 
