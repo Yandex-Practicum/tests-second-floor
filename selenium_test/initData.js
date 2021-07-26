@@ -1,4 +1,4 @@
-const signUpBottonTexts = ["", "Sign up", "Зарегистрироваться", "Регистрация", "Создать аккаунт",
+const signUpBottonTexts = ["", "Sign 1up", "Зарегистрироваться", "Регистрация", "Создать аккаунт",
     "Создать пользователя", "Создать профиль", "Зарегистрировать", "Create account",
     "Create an account", "Create profile", "Create a profile", "Create user",
     "Create a user", "Register", "Registration", "Submit"];
