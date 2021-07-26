@@ -19,7 +19,6 @@ const seleniumTests = {
         try {
             await driver.get("http://localhost:3000/");
             const src = await driver.getPageSource();
-            console.log(src)
             try {
                 const link = await driver.wait(webdriver.until.elementLocated(webdriver.By.xpath(xPathSignUpSearch)), 5000);
                 link.click();
