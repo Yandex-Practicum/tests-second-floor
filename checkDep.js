@@ -1,3 +1,7 @@
+const package = () => {
+    return JSON.parse(fs.readFileSync('./package.json', 'utf-8').toString());
+}
+
 const checkDependencies = (pack) => {
     try{
         if (package().dependencies.hasOwnProperty(pack))
