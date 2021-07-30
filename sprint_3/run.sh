@@ -22,7 +22,7 @@ bash tests-second-floor/sprint_1/check_start.sh
 check
 
 print_green "CHECK PARCEL"
-bash tests-second-floor/sprint_1/check_parcel.sh
+node tests-second-floor/sprint_1/check_parcel.js
 check
 
 print_green "CHECK PORT"
