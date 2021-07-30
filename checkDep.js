@@ -1,0 +1,24 @@
+const checkDependencies = (pack) => {
+    try{
+        if (package().dependencies.hasOwnProperty(pack))
+            return true;
+        else
+            return false;
+    }
+    catch(err) {
+        return false;
+    }
+}
+const checkDevDependencies = (pack) => {
+    try{
+        if (package().devDependencies.hasOwnProperty(pack))
+            return true;
+        else
+            return false;
+    }
+    catch(err) {
+        return false;
+    }
+}
+
+module.exports = { checkDependencies, checkDevDependencies };
