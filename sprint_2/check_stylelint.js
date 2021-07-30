@@ -9,12 +9,12 @@ const package = () => {
     return JSON.parse(fs.readFileSync('./package.json', 'utf-8').toString());
 }
 
-if ((package().dependencies?.hasOwnProperty('stylelint'))) {
+if ((package().dependencies.hasOwnProperty('stylelint'))) {
 	redLog('stylelint should be only in devDependencies, not in dependencies')
 	process.exit(1)
 }
 
-if (!package().devDependencies?.hasOwnProperty('stylelint')) {
+if (!package().devDependencies.hasOwnProperty('stylelint')) {
 	redLog('No stylelint in package.json')
 	process.exit(1)
 }

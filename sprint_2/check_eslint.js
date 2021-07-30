@@ -9,12 +9,12 @@ const package = () => {
     return JSON.parse(fs.readFileSync('./package.json', 'utf-8').toString());
 }
 
-if ((package().dependencies?.hasOwnProperty('eslint'))) {
+if ((package().dependencies.hasOwnProperty('eslint'))) {
 	redLog('eslint should be only in devDependencies, not in dependencies')
 	process.exit(1)
 }
 
-if (!package().devDependencies?.hasOwnProperty('eslint')) {
+if (!package().devDependencies.hasOwnProperty('eslint')) {
 	redLog('No eslint in package.json')
 	process.exit(1)
 }
