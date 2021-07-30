@@ -17,6 +17,7 @@ const checkDevDependencies = (pack) => {
             return false;
     }
     catch(err) {
+        console.log(err);
         return false;
     }
 }
