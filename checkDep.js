@@ -1,3 +1,4 @@
+const fs = require('fs');
 const package = () => {
     return JSON.parse(fs.readFileSync('./package.json', 'utf-8').toString());
 }
