@@ -23,7 +23,7 @@ const seleniumTests = {
                 const link = await driver.wait(webdriver.until.elementLocated(webdriver.By.xpath(xPathSignUpSearch)), 5000);
                 link.click();
             } catch (e) {
-                throw Error("NO VALID \"Sign up\"");
+                throw Error("NO VALID \"SIGN UP\" LINK OR BUTTON");
             }
 
             const url = await driver.getCurrentUrl();
@@ -47,15 +47,26 @@ const seleniumTests = {
                 const field = await driver.wait(webdriver.until.elementLocated(webdriver.By.xpath(`.//input[@name='${key}']`)), 5000);
                 field.sendKeys(fieldRef[key]);
             }
+            driver.navigate().refresh();
 
-            const create = await driver.wait(webdriver.until.elementLocated(webdriver.By.xpath(xPathSignUpSearch)), 5000);
-            //  create.click();
-            await delay(10000);
+            try {
+                const link = await driver.wait(webdriver.until.elementLocated(webdriver.By.xpath(xPathSignUpSearch)), 5000);
+                link.click();
+            } catch (e) {
+                throw Error("NO VALID \"SIGN UP\" LINK OR BUTTON");
+            }
+            try {
+                const url = await driver.getCurrentUrl();
+                if (url === "http://localhost:3000/sign-up")
+                    throw new Error();
+            }
+            catch(err) {
+                throw Error("REGISTRATION FAILED. NO ROUTING FROM http://localhost:3000/sign-up");
+            }
 
-            const encodedString = await driver.takeScreenshot();
-            await fs.writeFileSync("./image.png", encodedString, "base64");
-            //   const url = await driver.getCurrentUrl();
-            //  console.log(url)
+//            const encodedString = await driver.takeScreenshot();
+//            await fs.writeFileSync("./image.png", encodedString, "base64");
+
         } catch (err) {
             errors.push(err.message);
             return { errors };

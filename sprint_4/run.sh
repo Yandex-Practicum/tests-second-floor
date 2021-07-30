@@ -22,7 +22,7 @@ bash tests-second-floor/sprint_1/check_start.sh
 check
 
 print_green "CHECK WEBPACK"
-bash tests-second-floor/sprint_4/check_webpack.sh
+node tests-second-floor/sprint_4/check_webpack.js
 check
 
 print_green "CHECK PORT"
