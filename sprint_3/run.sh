@@ -29,10 +29,32 @@ print_green "CHECK PORT"
 bash tests-second-floor/sprint_1/check_port.sh
 check
 
-
-
-print_green "CHECK UI"
-node tests-second-floor/selenium_test/ui_test.sh
+print_green "CHECK ROUTING"
+node tests-second-floor/sprint_1/check_routing.js
 check
+
+print_green "CHECK TYPESCRIPT"
+node tests-second-floor/sprint_2/check_typescript.js
+check
+
+print_green "CHECK STYLELINT"
+node tests-second-floor/sprint_2/check_stylelint.js
+check
+
+print_green "CHECK ESLINT"
+node tests-second-floor/sprint_2/check_eslint.js
+check
+
+print_green "CHECK MOCHA"
+node tests-second-floor/sprint_3/check_mocha.js
+check
+
+print_green "CHECK CHAI"
+node tests-second-floor/sprint_3/check_chai.js
+check
+
+#print_green "CHECK UI"
+#node tests-second-floor/selenium_test/ui_test.sh
+#check
 
 exit 0
