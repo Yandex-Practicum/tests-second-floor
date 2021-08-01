@@ -62,11 +62,12 @@ const seleniumTests = {
 
             try {
                 const url = await driver.getCurrentUrl();
+                console.log("+++++"+url)
                 if (url === "http://localhost:3000/sign-up")
                     throw new Error();
             }
             catch(err) {
-                console.log(err + "--------------"
+                console.log(err + "--------------")
                 throw Error("REGISTRATION FAILED. NO ROUTING FROM http://localhost:3000/sign-up");
             }
 
