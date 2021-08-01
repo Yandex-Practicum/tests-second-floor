@@ -59,6 +59,7 @@ const seleniumTests = {
             } catch (e) {
                 throw Error("NO VALID \"SIGN UP\" LINK OR BUTTON");
             }
+            await delay(3000)
 
             try {
                 const url = await driver.getCurrentUrl();
