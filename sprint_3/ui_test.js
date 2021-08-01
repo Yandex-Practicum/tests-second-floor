@@ -44,8 +44,13 @@ const seleniumTests = {
             signUpButton.click();
 
             for (const key in fieldRef) {
-                const field = await driver.wait(webdriver.until.elementLocated(webdriver.By.xpath(`.//input[@name='${key}']`)), 5000);
-                field.sendKeys(fieldRef[key]);
+                try{
+                    const field = await driver.wait(webdriver.until.elementLocated(webdriver.By.xpath(`.//input[@name='${key}']`)), 5000);
+                    field.sendKeys(fieldRef[key]);
+                }
+                catch (err) {
+                    throw Error(`NO ${key} FIELD`);
+                }
             }
             driver.navigate().refresh();
 
