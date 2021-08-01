@@ -52,7 +52,6 @@ const seleniumTests = {
                     throw Error(`NO ${key} FIELD`);
                 }
             }
-            driver.navigate().refresh();
 
             try {
                 const link = await driver.wait(webdriver.until.elementLocated(webdriver.By.xpath(xPathSignUpSearch)), 5000);
@@ -60,6 +59,7 @@ const seleniumTests = {
             } catch (e) {
                 throw Error("NO VALID \"SIGN UP\" LINK OR BUTTON");
             }
+
             try {
                 const url = await driver.getCurrentUrl();
                 if (url === "http://localhost:3000/sign-up")
