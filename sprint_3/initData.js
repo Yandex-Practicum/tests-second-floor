@@ -47,7 +47,7 @@ const data = {
     login: initField([0, 1, 12]),
     email: initField([5, 7, 8], ["", "@email.com", 20]),
     password: initField([6, 10, 11], ["ABC", "12", 15]),
-    phone: initField([2, 12], ["+79", "", 12, "0", 10]),
+    phon1e: initField([2, 12], ["+79", "", 12, "0", 10]),
 };
 
 const fieldChecks = (function () {
