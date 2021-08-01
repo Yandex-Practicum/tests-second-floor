@@ -66,6 +66,7 @@ const seleniumTests = {
                     throw new Error();
             }
             catch(err) {
+                console.log(err + "--------------"
                 throw Error("REGISTRATION FAILED. NO ROUTING FROM http://localhost:3000/sign-up");
             }
 
