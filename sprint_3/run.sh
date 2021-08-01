@@ -33,13 +33,6 @@ print_green "CHECK ROUTING"
 node tests-second-floor/sprint_1/check_routing.js
 check
 
-print_green "CHECK UI"
-pwd
-npm  --prefix ./tests-second-floor/sprint_3 install ./tests-second-floor/sprint_3 &> install_errors.txt
-npm install -g geckodriver &> install_errors.txt
-node tests-second-floor/sprint_3/ui_test.js
-check
-
 print_green "CHECK TYPESCRIPT"
 node tests-second-floor/sprint_2/check_typescript.js
 check
@@ -58,6 +51,13 @@ check
 
 print_green "CHECK CHAI"
 node tests-second-floor/sprint_3/check_chai.js
+check
+
+print_green "CHECK REGISTRATION"
+pwd
+npm  --prefix ./tests-second-floor/sprint_3 install ./tests-second-floor/sprint_3 &> install_errors.txt
+npm install -g geckodriver &> install_errors.txt
+node tests-second-floor/sprint_3/ui_test.js
 check
 
 exit 0
