@@ -22,8 +22,8 @@ bash tests-second-floor/sprint_1/check_port.sh
 
 
 print_green "CHECK REGISTRATION"
-start=$(($(date +%s%N)/1000000))
 npm install puppeteer &> install_errors.txt
+start=$(($(date +%s%N)/1000000))
 node tests-second-floor/puppeteer_test/ui_test.js
 check
 
