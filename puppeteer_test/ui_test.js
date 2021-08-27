@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer'); 
 const { xPathSearch, fielfChecks, fieldRef } = require("./initData");
 
-console.log(fieldRef)
+//console.log(fieldRef)
 
 async function errorReturn(err, browser) {
     console.log(`\x1b[31m${err}\x1b[0m`);
