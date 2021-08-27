@@ -1,11 +1,23 @@
 const signUpBottonTexts = ["Sign up", "Зарегистрироваться", "Регистрация", "Создать аккаунт",
-    "Создать пользователя", "Создать профиль", "Зарегистрировать", "Create account",
-    "Create an account", "Create profile", "Create a profile", "Create user",
-    "Create a user", "Register", "Registration", "Submit"];
+"Создать пользователя", "Создать профиль", "Зарегистрировать", "Create account",
+"Create an account", "Create profile", "Create a profile", "Create user",
+"Create a user", "Register", "Registration", "Submit"];
 
-const xPathSignUpSearch = signUpBottonTexts
-    .reduce((finalString, current) => `${finalString}.//*[text() = '${current}'] |`, "")
-    .slice(0, -2);
+const noAccountBottonTexts = [...signUpBottonTexts, "Ещё не зарегистрированы?", 
+"Нет аккаунта?", "Нет профиля?", "Впервые?"];
+
+const logInBottonTexts = ["Sign in", "Enter", "Sign in", "Вход", "Войти"];
+
+const makeXPath = function(texts) {
+    return texts.reduce((finalString, current) => `${finalString}.//*[text() = '${current}'] |`, "")
+                .slice(0, -2);
+}
+
+xPathSearch = {
+    signUp: makeXPath(signUpBottonTexts),
+    noAccount: makeXPath(noAccountBottonTexts), 
+    logIn : makeXPath(logInBottonTexts)
+};
 
 function generateField(preStr = "", postStr = "", strLen = 10, starter = "a", selection = 26) {
     const randomNumber = () => Math.floor(Math.random() * selection);
@@ -76,4 +88,4 @@ const fieldRef = (function () {
     return ref;
 }());
 
-module.exports = { xPathSignUpSearch, fieldChecks, fieldRef };
+module.exports = { xPathSearch, fieldChecks, fieldRef };
