@@ -8,9 +8,13 @@ function print_red(){
 function check(){
 	if [[ $? != 0 ]]
 		then
+		end=$(($(date +%s%N)/1000000))
+		echo "Elapsed Time: $(($end-$start)) milliseconds"
 		print_red "FAILED"
 		exit 1
 	fi
+	end=$(($(date +%s%N)/1000000))
+	echo "Elapsed Time: $(($end-$start)) milliseconds"
 }
 
 print_green "CHECK PORT"
@@ -22,5 +26,4 @@ print_green "CHECK REGISTRATION"
 npm install puppeteer &> install_errors.txt
 node tests-second-floor/puppeteer_test/ui_test.js
 check
-end=$(($(date +%s%N)/1000000))
-echo "Elapsed Time: $(($end-$start)) milliseconds"
+
