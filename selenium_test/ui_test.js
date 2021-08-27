@@ -1,9 +1,6 @@
 const webdriver = require("selenium-webdriver");
 const firefox = require("selenium-webdriver/firefox");
-const fs = require("fs");
-const path = require("path");
-const http = require("http");
-const { xPathSignUpSearch, fielfChecks, fieldRef } = require("./initData");
+const { xPathSearch, fielfChecks, fieldRef } = require("./initData");
 
 function redLog(err) {
     console.log(`\x1b[31m${err}\x1b[0m`);
@@ -20,10 +17,10 @@ const seleniumTests = {
             await driver.get("http://localhost:3000/");
             const src = await driver.getPageSource();
             try {
-                const link = await driver.wait(webdriver.until.elementLocated(webdriver.By.xpath(xPathSignUpSearch)), 5000);
+                const link = await driver.wait(webdriver.until.elementLocated(webdriver.By.xpath(xPathSearch.noAccount)), 5000);
                 link.click();
             } catch (e) {
-                throw Error("NO VALID \"SIGN UP\" LINK OR BUTTON");
+                throw Error("NO VALID \"SIGN UP\" LINK OR BUTTON1");
             }
 
             const url = await driver.getCurrentUrl();
@@ -35,12 +32,12 @@ const seleniumTests = {
             return { errors }; // errors.push('test.errors.reactDev.navigation.noLinkViewCatalog');
             // Должна отрендериться ссылка на /list с текстом View catalog
         }
-    },
+    }, 
     checkRef: async (driver, webdriver, errors) => {
         try {
             await driver.get("http://localhost:3000/");
             await driver.getPageSource();
-            const signUpButton = await driver.wait(webdriver.until.elementLocated(webdriver.By.xpath(xPathSignUpSearch)), 5000);
+            const signUpButton = await driver.wait(webdriver.until.elementLocated(webdriver.By.xpath(xPathSearch.noAccount)), 5000);
             signUpButton.click();
 
             for (const key in fieldRef) {
@@ -50,28 +47,27 @@ const seleniumTests = {
             driver.navigate().refresh();
 
             try {
-                const link = await driver.wait(webdriver.until.elementLocated(webdriver.By.xpath(xPathSignUpSearch)), 5000);
+                const link = await driver.wait(webdriver.until.elementLocated(webdriver.By.xpath(xPathSearch.signUp)), 5000);
                 link.click();
+                driver.navigate().refresh();
+
             } catch (e) {
-                throw Error("NO VALID \"SIGN UP\" LINK OR BUTTON");
+                throw Error("NO VALID \"SIGN UP\" LINK OR BUTTON2");
             }
             try {
                 const url = await driver.getCurrentUrl();
                 if (url === "http://localhost:3000/sign-up")
                     throw new Error();
             }
-            catch(err) {
+            catch(error) {
                 throw Error("REGISTRATION FAILED. NO ROUTING FROM http://localhost:3000/sign-up");
             }
-
-//            const encodedString = await driver.takeScreenshot();
-//            await fs.writeFileSync("./image.png", encodedString, "base64");
-
         } catch (err) {
             errors.push(err.message);
             return { errors };
         }
     },
+    
 };
 
 async function test() {
