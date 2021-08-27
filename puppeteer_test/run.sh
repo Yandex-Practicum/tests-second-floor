@@ -19,7 +19,7 @@ function check(){
 
 print_green "CHECK PORT"
 bash tests-second-floor/sprint_1/check_port.sh
-check
+
 
 start=$(($(date +%s%N)/1000000))
 print_green "CHECK REGISTRATION"
