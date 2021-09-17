@@ -1,7 +1,7 @@
 . ./tests-second-floor/sprint_1/print_err.sh
 . ./tests-second-floor/sprint_1/ERRORS_KEYS.sh
 
-pnpm i -f && pnpm run start &
+sudo npm install -g pnpm && pnpm i -f && pnpm run start &
 timeout 180 bash tests-second-floor/sprint_1/setInterval.sh
 
 if [[ $? == "0" ]]; then
