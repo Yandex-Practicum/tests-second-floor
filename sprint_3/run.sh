@@ -17,6 +17,8 @@ function check(){
 	fi
 }
 
+sudo npm install -g pnpm &> /dev/null &
+
 print_green "CHECK START"
 bash tests-second-floor/sprint_1/check_start.sh
 check
