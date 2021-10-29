@@ -2,7 +2,7 @@
 . ./tests-second-floor/sprint_1/print_err.sh
 . ./tests-second-floor/sprint_1/ERRORS_KEYS.sh
 
-LINK=$(cat README.md | grep https://github.com/ | grep /middle.messenger.praktikum.yandex)
+LINK=$(cat *.md | grep github.com/ | grep /middle.messenger.praktikum.yandex)
 
 if [[ -z $LINK ]]
 then
