@@ -6,6 +6,30 @@ function redLog (err) {
 	console.log('\x1b[31m' + err + '\x1b[0m')
 }
 
+function getAllFiles(dirPath, arrayOfFiles = []) {
+  const files = fs.readdirSync(dirPath);
+
+  files.forEach(function(file) {
+    if (fs.statSync(dirPath + "/" + file).isDirectory()) {
+      arrayOfFiles = getAllFiles(dirPath + "/" + file, arrayOfFiles)
+    } else {
+      arrayOfFiles.push(path.join(dirPath, "/", file))
+    }
+  })
+
+  return arrayOfFiles
+}
+
+const getStylesExtension = (directory) => {
+  const files = getAllFiles(directory);
+  if (files.some((filePath) => filePath.includes('.scss'))) {
+    return '.scss'
+  } else if (files.some((filePath) => filePath.includes('.css'))) {
+    return '.css'
+  }
+  return '';
+}
+
 const package = () => {
     return JSON.parse(fs.readFileSync('./package.json', 'utf-8').toString());
 }
@@ -18,6 +42,13 @@ if ((checkDependencies('stylelint'))) {
 if (!checkDevDependencies('stylelint')) {
 	redLog('No stylelint in package.json')
 	process.exit(1)
+}
+
+const extension = getStylesExtension('.');
+
+if (extension === '') {
+  redLog('There are no style files with the extension either.css, or .scss')
+  process.exit(1);
 }
 
 const stylelint = require('stylelint');
@@ -35,7 +66,7 @@ catch (err) {
 
 async function useLint(projectPath) {
     const data = await stylelint.lint({
-        files: projectPath + '**/*.css',
+        files: `${projectPath}**/*.${extension}`,
         config: stylelint_opt()
     });
     const errors = [];
