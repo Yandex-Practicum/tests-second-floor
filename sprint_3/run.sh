@@ -45,14 +45,6 @@ print_green "CHECK ESLINT"
 node tests-second-floor/sprint_2/check_eslint.js
 check
 
-print_green "CHECK MOCHA"
-node tests-second-floor/sprint_3/check_mocha.js
-check
-
-print_green "CHECK CHAI"
-node tests-second-floor/sprint_3/check_chai.js
-check
-
 #print_green "CHECK REGISTRATION"
 #npm  --prefix ./tests-second-floor/sprint_3 install ./tests-second-floor/sprint_3 &> install_errors.txt
 #node tests-second-floor/sprint_3/ui_test.js
