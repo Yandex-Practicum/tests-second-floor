@@ -2,6 +2,14 @@ const fs = require('fs');
 const path = require('path');
 const { checkDependencies, checkDevDependencies } = require("../checkDep");
 
+const styleExtensions = [
+  '.css',
+  '.scss',
+  '.sass',
+  '.styl',
+  '.less',
+];
+
 function redLog (err) {
 	console.log('\x1b[31m' + err + '\x1b[0m')
 }
@@ -20,14 +28,13 @@ function getAllFiles(dirPath, arrayOfFiles = []) {
   return arrayOfFiles
 }
 
-const getStylesExtension = (directory) => {
+const getStyleExtensions = (directory) => {
   const files = getAllFiles(directory);
-  if (files.some((filePath) => filePath.includes('.scss'))) {
-    return 'scss'
-  } else if (files.some((filePath) => filePath.includes('.css'))) {
-    return 'css'
-  }
-  return '';
+  const extensionsFound = files
+    .map((filepath) => path.extname(filepath))
+    .filter((extension) => styleExtensions.includes(extension))
+    .reduce((extensions, extension) => extensions.add(extension), new Set());
+  return Array.from(extensionsFound);
 }
 
 const package = () => {
@@ -44,11 +51,16 @@ if (!checkDevDependencies('stylelint')) {
 	process.exit(1)
 }
 
-const extension = getStylesExtension('.');
-
-if (extension === '') {
-  redLog('There are no style files with the extension either.css, or .scss')
+const extensions = getStyleExtensions('.');
+let extension;
+if (extensions.length === 0) {
+  redLog('There are no style files')
   process.exit(1);
+} else if(extensions.length > 1) {
+  redLog('Files with styles must have one extension. For example, .scss')
+  process.exit(1);
+} else {
+  extension = extensions[0];
 }
 
 const stylelint = require('stylelint');
