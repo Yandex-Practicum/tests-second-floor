@@ -23,9 +23,15 @@ function getAllFiles(dirPath, arrayOfFiles = []) {
 const getStylesExtension = (directory) => {
   const files = getAllFiles(directory);
   if (files.some((filePath) => filePath.includes('.scss'))) {
-    return 'scss'
+    return 'scss';
+  } else if (files.some((filePath) => filePath.includes('.sass'))) {
+    return 'sass';
   } else if (files.some((filePath) => filePath.includes('.css'))) {
-    return 'css'
+    return 'css';
+  } else if (files.some((filePath) => filePath.includes('.less'))) {
+    return 'less';
+  } else if (files.some((filePath) => filePath.includes('.styl'))) {
+    return 'styl';
   }
   return '';
 }
