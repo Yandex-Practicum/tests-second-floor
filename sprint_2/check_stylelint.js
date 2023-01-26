@@ -8,6 +8,7 @@ const styleExtensions = [
   '.sass',
   '.styl',
   '.less',
+  '.pcss',
 ];
 
 function redLog (err) {
