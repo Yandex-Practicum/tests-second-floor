@@ -19,7 +19,7 @@ function getAllFiles(dirPath, arrayOfFiles = []) {
   const files = fs.readdirSync(dirPath);
 
   files
-    .filter((file) => file !== 'node_modules' && file !== 'dist')
+    .filter((file) => file !== 'node_modules' && file !== 'dist' && file !== 'build')
     .forEach(function(file) {
     if (fs.statSync(dirPath + "/" + file).isDirectory()) {
       arrayOfFiles = getAllFiles(dirPath + "/" + file, arrayOfFiles)
